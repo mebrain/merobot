@@ -1,0 +1,92 @@
+{
+  "name": "sts3215",
+  "description": "Feetech STS3215 serial bus servo with magnetic encoder and dual shaft: a driven output wheel and a free idle wheel on opposite faces. Used inside the `servo` unit (see servo.json); not placed on its own in robot_structure.md.",
+  "kind": "servo",
+  "manufacturer": "Feetech",
+
+  "size_mm": [45.2, 24.7, 35.0],
+  "size_note": "length x width x height; the shaft axis is along the 35 mm height.",
+  "mass_g": 55,
+  "mass_tolerance_g": 1,
+
+  "wheels": {
+    "output": { "moving": true, "description": "Driven output wheel (horn)." },
+    "idle": { "moving": false, "description": "Free idle wheel on the opposite face, same axis." },
+    "horn_spline_teeth": 25,
+    "horn_material": "POM (plastic)",
+    "output_shaft_position_mm": null,
+    "output_shaft_position_note": "Offset of the shaft along the 45.2 mm length: not yet measured."
+  },
+
+  "variant_in_use": null,
+  "variant_note": "Not yet confirmed which voltage version our servos are. Check the label.",
+  "variants": {
+    "7.4V": {
+      "operating_voltage_v": [6.0, 7.4],
+      "stall_torque_kgcm": 19.5,
+      "stall_torque_nm": 1.91,
+      "rated_torque_kgcm": 6.5,
+      "rated_torque_nm": 0.64,
+      "no_load_speed_s_per_60deg": 0.238,
+      "no_load_speed_rad_s": 4.40,
+      "no_load_speed_rpm": 42,
+      "no_load_current_ma": 150,
+      "stall_current_ma": 2000,
+      "rated_at_v": 6.0,
+      "gear_ratio": "1:345",
+      "gear_ratio_note": "From a retailer product title; not confirmed in Feetech's own documentation."
+    },
+    "12V": {
+      "model": "ST-3215-C018",
+      "operating_voltage_v": [4.0, 14.0],
+      "stall_torque_kgcm": 30.0,
+      "stall_torque_nm": 2.94,
+      "rated_torque_kgcm": 10.0,
+      "rated_torque_nm": 0.98,
+      "no_load_speed_s_per_60deg": 0.222,
+      "no_load_speed_rad_s": 4.72,
+      "no_load_current_ma": 180,
+      "stall_current_ma": 2700,
+      "rated_at_v": 12.0
+    }
+  },
+
+  "construction": {
+    "motor": "coreless",
+    "gears": "metal (listed as steel or copper by different sellers)",
+    "bearings": "ball bearings",
+    "case": "aluminium alloy"
+  },
+
+  "position": {
+    "encoder": "magnetic",
+    "steps_per_turn": 4096,
+    "resolution_deg": 0.088,
+    "angle_range_deg": 360,
+    "angle_limit": "none (multi-turn continuous rotation also supported)"
+  },
+
+  "feedback": ["position", "speed", "load", "input voltage", "temperature"],
+
+  "communication": {
+    "signal": "digital packets",
+    "protocol": "half-duplex asynchronous serial (TTL bus)",
+    "unverified": {
+      "max_baud_bps": 1000000,
+      "id_range": [0, 253],
+      "note": "From general Feetech STS protocol knowledge, not from a datasheet checked for this project."
+    }
+  },
+
+  "environment": {
+    "operating_temp_c": [-15, 70],
+    "storage_temp_c": [-30, 80]
+  },
+  "cable_length_mm": 150,
+
+  "sources": [
+    "https://evelta.com/st3215-7-4v-19kg-1-345-gear-dual-axis-ttl-string-servo-motor/",
+    "https://robotshop.com/products/feetech-12v-30kgcm-magnetic-encoding-servo-sts3215",
+    "https://core-electronics.com.au/attachments/uploads/sts3215-smart-servo-datasheet-translated.pdf"
+  ]
+}

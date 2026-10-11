@@ -1,0 +1,117 @@
+{
+  "name": "servo",
+  "description": "Servo unit: a printed servo holder with one STS3215 inside it. Written as `servo <ID>` in robot_structure.md. The servo and holder are always treated as one unit.",
+  "servo_holder": true,
+  "servo": "sts3215",
+
+  "mass_g": 95.0,
+  "mass_breakdown_g": { "holder": 40.0, "servo (sts3215)": 55.0 },
+  "mass_note": "Holder mass is solid PLA (100% infill), so it is an upper bound. The connecting rods are not included: they are bolted to the servo wheels and move with the driven part.",
+  "size_mm": [47.1, 35.0, 60.0],
+
+  "holder": {
+    "mesh": "servo_holder.stl",
+    "mesh_original_name": "MainHolder (1).stl",
+    "material": "PLA",
+    "density_g_cm3": 1.24,
+    "volume_cm3": 32.2,
+    "volume_note": "The mesh has 4 open faces, so the volume is approximate.",
+    "mass_g": 40.0,
+
+    "frame": {
+      "units": "mm, mesh coordinates",
+      "x": "servo shaft axis. The holder is open on both x sides; the servo's two wheels come out here.",
+      "y": "across the two side walls",
+      "z": "along the servo's length. z max (79.4) = socket face, z min (19.4) = open end"
+    },
+    "bounds_mm": { "min": [0.3, 13.4, 19.4], "max": [47.4, 48.4, 79.4] },
+
+    "servo_cavity": {
+      "description": "Snug pocket between the two side walls, closed by the roof, open at both x sides and at the open end.",
+      "size_mm": [35.0, 25.0, 45.0],
+      "y_range_mm": [18.4, 43.4],
+      "z_range_mm": [24.4, 69.4],
+      "servo_orientation": "STS3215 stands with its 45.2 mm length along z, 24.7 mm width along y (0.3 mm clearance), and 35 mm (shaft axis) along x.",
+      "servo_box_estimate_mm": { "min": [6.35, 18.55, 24.4], "max": [41.35, 43.25, 69.6] }
+    },
+
+    "side_walls": {
+      "count": 2,
+      "size_mm": [30.0, 5.0, 38.0],
+      "x_range_mm": [8.8, 38.9],
+      "y_ranges_mm": [[13.4, 18.4], [43.4, 48.4]]
+    },
+
+    "roof": {
+      "description": "Solid block at the socket end. 47.1 x 35.0 mm, 10 mm thick over the servo, with sloped shoulders down to the side walls.",
+      "full_block_z_range_mm": [64.7, 79.4],
+      "over_servo_z_range_mm": [69.4, 79.4],
+      "shoulders_z_range_mm": [57.0, 64.7]
+    },
+
+    "rod_sockets": {
+      "description": "Square sockets in the socket face. The two prongs of a connecting rod plug into one pair. One pair at each x end, i.e. one pair per servo side.",
+      "count": 4,
+      "section_mm": [5.3, 5.3],
+      "depth_mm": 15.0,
+      "open_on": "socket face (z = 79.4)",
+      "x_centers_mm": [4.45, 43.35],
+      "pair_distance_mm": 38.9,
+      "y_centers_mm": [25.95, 36.25],
+      "spacing_in_pair_mm": 10.3
+    },
+
+    "socket_lock_holes": {
+      "description": "Cross holes along x through the socket pairs, to pin or screw the rod prongs in place.",
+      "diameters_mm": [3.0, 2.0],
+      "y_centers_mm": [26.1, 36.1],
+      "z_center_mm": 73.5
+    },
+
+    "open_end_notches": {
+      "description": "Square notches in the bottom edge of each side wall, each with a 2 mm pilot hole above it. Same 5 mm section and 10 mm spacing as the connecting-rod prongs.",
+      "count": 4,
+      "per_wall": 2,
+      "section_mm": [5.0, 5.0],
+      "x_centers_mm": [18.8, 28.8],
+      "spacing_mm": 10.0,
+      "pilot_hole_mm": 2.0
+    },
+
+    "other_holes": [
+      { "description": "Two holes along x at one end of the roof, near the shoulders. Purpose not known.", "diameter_mm": 2.0, "y_centers_mm": [21.0, 41.5], "z_center_mm": 67.6, "x_range_mm": [40.0, 47.4] }
+    ]
+  },
+
+  "connecting_rod": {
+    "description": "Flat printed rod that connects a servo to the next part. The round end bolts to a servo wheel; the two square prongs plug into a socket pair of the next part (a servo holder's socket face, or the foot).",
+    "mesh": "connecting_rod.stl",
+    "mesh_original_name": "FootLetMotorBracket.stl",
+    "material": "PLA",
+    "volume_cm3": 3.10,
+    "mass_g": 3.8,
+    "mass_note": "Solid PLA upper bound.",
+    "size_mm": [5.0, 25.0, 52.5],
+    "rods_per_servo": 2,
+    "rods_per_servo_note": "Inferred: sockets come in two pairs 38.9 mm apart, one on each side of the servo, matching one rod on the output wheel and one on the idle wheel.",
+    "moves_with": "the driven part (it is bolted to the wheel)",
+
+    "wheel_end": {
+      "shape": "round disc",
+      "diameter_mm": 24.6,
+      "thickness_mm": 3.0,
+      "center_hole_mm": 3.0,
+      "bolt_holes": { "count": 4, "diameter_mm": 3.0, "pattern": "cross", "circle_diameter_mm": 13.8 }
+    },
+    "stem": { "width_mm": 15.0, "thickness_mm": 5.0 },
+    "plug_end": {
+      "prongs": 2,
+      "prong_section_mm": [5.0, 5.0],
+      "prong_length_mm": 14.5,
+      "prong_spacing_mm": 10.0
+    },
+    "wheel_axis_to_mating_face_mm": 25.5,
+    "wheel_axis_to_prong_tip_mm": 40.0,
+    "fit": "5.0 mm prongs in 5.3 mm sockets (0.3 mm clearance); 14.5 mm prongs in 15 mm deep sockets."
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "box_body",
+  "description": "Body box between the neck and the legs. Sits on the two horizontal middle servos.",
+  "servo_holder": false,
+  "mesh": null,
+  "mass_g": null,
+  "size_mm": null
+}

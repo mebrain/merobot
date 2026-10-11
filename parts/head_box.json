@@ -1,0 +1,8 @@
+{
+  "name": "head_box",
+  "description": "Head box at the top of the robot, turned by the servo below it.",
+  "servo_holder": false,
+  "mesh": null,
+  "mass_g": null,
+  "size_mm": null
+}

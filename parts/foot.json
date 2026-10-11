@@ -1,0 +1,36 @@
+{
+  "name": "foot",
+  "description": "Boat-shaped foot with a rounded sole. Same part on the left and right leg. Connected to the servo above it by connecting rods.",
+  "servo_holder": false,
+  "mesh": "foot.stl",
+  "mesh_original_name": "Foot.stl",
+  "mesh_source": "D:/Code/microente/01.10/Foot.stl (identical to 26.09/BoatFoot.stl)",
+  "material": "PLA",
+  "density_g_cm3": 1.24,
+  "size_mm": [49.8, 57.0, 19.2],
+  "volume_cm3": 48.6,
+  "mass_g": 60.3,
+  "mass_note": "Solid PLA (100% infill), so an upper bound.",
+
+  "frame": {
+    "units": "mm, mesh coordinates",
+    "z": "up; z max (-3.25) = flat top face, z min (-22.5) = bottom of the rounded sole"
+  },
+  "bounds_mm": { "min": [0.6, -0.4, -22.5], "max": [50.4, 56.6, -3.25] },
+
+  "rod_sockets": {
+    "description": "Square sockets in the top face, the same as the servo holder's. The prongs of the connecting rods from the servo above plug in here, one pair per side.",
+    "count": 4,
+    "section_mm": [5.3, 5.3],
+    "depth_mm": 15.0,
+    "open_on": "top face",
+    "x_centers_mm": [5.85, 44.8],
+    "pair_distance_mm": 39.0,
+    "y_centers_mm": [28.7, 39.0],
+    "spacing_in_pair_mm": 10.3
+  },
+
+  "sole": {
+    "description": "Rounded underside that touches the ground. Narrows from 49.8 mm wide to about 15 mm at the very bottom."
+  }
+}

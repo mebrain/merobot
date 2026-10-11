@@ -1,0 +1,72 @@
+{
+  "description": "All sensors on merobot: what they measure, where they sit, and their specs. Used later to add matching sensors to the MuJoCo model.",
+
+  "sensors": [
+    {
+      "name": "imu_body",
+      "type": "imu",
+      "model": "MPU6050",
+      "board": "GY-521",
+      "description": "6-axis IMU (3-axis gyroscope + 3-axis accelerometer). Gives the body's tilt (from gravity) and rotation speed for balancing and walking.",
+      "mounted_on": "box_body",
+      "mount": {
+        "position_mm": null,
+        "orientation": null,
+        "note": "Mount firmly near the middle of the box body, ideally on foam tape to damp servo vibration. Exact position and axis orientation not decided yet."
+      },
+      "quantity_owned": 3,
+      "quantity_used": 1,
+
+      "measures": {
+        "gyroscope": {
+          "axes": 3,
+          "unit": "deg/s",
+          "ranges_deg_s": [250, 500, 1000, 2000],
+          "noise_density_deg_s_per_sqrt_hz": 0.005
+        },
+        "accelerometer": {
+          "axes": 3,
+          "unit": "g",
+          "ranges_g": [2, 4, 8, 16],
+          "noise_density_ug_per_sqrt_hz": 400
+        },
+        "temperature": { "unit": "C", "note": "Die temperature, for gyro drift compensation." }
+      },
+      "does_not_measure": ["heading (no magnetometer: yaw drifts over time)"],
+
+      "adc_bits": 16,
+      "max_output_rate_hz": { "gyroscope": 8000, "accelerometer": 1000 },
+      "digital_low_pass_filter": true,
+      "onboard_motion_processor": "DMP (can compute orientation on-chip; awkward to set up)",
+
+      "interface": {
+        "bus": "I2C",
+        "max_clock_khz": 400,
+        "addresses": ["0x68", "0x69"],
+        "address_note": "Set by the AD0 pin, so at most two MPU6050s per I2C bus."
+      },
+      "supply_voltage_v": [3.3, 5.0],
+      "supply_note": "The GY-521 board has an on-board regulator.",
+
+      "processing_needed": "Fuse gyro and accelerometer (complementary or Madgwick filter) to get tilt. Calibrate the gyro offset at startup while the robot stands still.",
+      "spec_note": "Noise densities are from the InvenSense MPU-6050 datasheet; clone chips on cheap GY-521 boards can be noisier."
+    },
+
+    {
+      "name": "servo_feedback",
+      "type": "servo_internal",
+      "model": "sts3215",
+      "description": "Built into every servo (see parts/sts3215.json). Read over the servo bus.",
+      "mounted_on": "every servo",
+      "quantity_used": 12,
+      "measures": {
+        "position": { "unit": "steps", "steps_per_turn": 4096, "resolution_deg": 0.088 },
+        "speed": {},
+        "load": {},
+        "input_voltage": { "unit": "V" },
+        "temperature": { "unit": "C" }
+      },
+      "interface": { "bus": "half-duplex TTL serial (servo bus)" }
+    }
+  ]
+}
