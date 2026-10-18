@@ -1,4 +1,4 @@
-"""Train merobot to stand upright with PPO (Stable-Baselines3, CPU).
+"""Train Duckbot to stand upright with PPO (Stable-Baselines3, CPU).
 
 The policy runs at 50 Hz. Every step it reads what the real robot can measure:
   - imu_body gyro and accelerometer (with MPU6050-like noise, see sensors.json)
@@ -8,7 +8,7 @@ and outputs a desired angle for each of the 10 servos (around the zero pose).
 The desired angles are smoothed and speed-limited before they reach the servos,
 like a real servo command stream, so the policy cannot learn to buzz.
 
-Usage (run with the project venv: .venv/Scripts/python.exe):
+Usage (from robots/duckbot, using ../../.venv/Scripts/python.exe):
     python train_stand.py                      # train, saves to runs/stand/<time>/
     python train_stand.py --steps 5000000      # train longer
     python train_stand.py --play runs/stand/<time>    # watch a trained policy in the viewer
@@ -24,7 +24,7 @@ import mujoco
 import numpy as np
 
 ROOT = Path(__file__).parent
-MODEL = ROOT / "merobot.xml"
+MODEL = ROOT / "duckbot.xml"
 
 CONTROL_HZ = 50
 EPISODE_SECONDS = 10

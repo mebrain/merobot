@@ -1,4 +1,4 @@
-# merobot – Robot Simulation Notes
+# Duckbot – Robot Simulation Notes
 
 _Started 2026-10-11_
 
@@ -18,7 +18,7 @@ _Our own design in Fusion 360, as of 2026-10-11._ A duck-style biped (similar la
 |---|---|
 | Fusion 360 design (source of truth) | Fusion 360 cloud |
 | Daily STL print exports | `D:\Code\microente\<dd.mm>\` (127 STLs, no other file types) |
-| Simulation project | `D:\Code\merobot\` (this folder) |
+| Simulation project | `robots/duckbot/` in the merobot repository |
 
 Part names in the STLs suggest a biped with **Feetech STS3215** and **996 (MG996R?)** servos: `STS3215ServoHolder`, `996ServoHolder`, `Foot_Left`, `leg`, `StepRod`, `BatteryHolder`, `TopPlate`, `HeadTop`, etc.
 
@@ -69,8 +69,8 @@ An STL contains only the mesh in (1), with no mass, and each file sits in its **
 The first single-servo test rig (`servo_bar.xml`, `run_sim.py`) has been removed. What it showed: a position actuator capped at the STS3215 stall torque (1.9 N·m) with damping 0.4 reaches about 265 °/s, close to the real no-load speed.
 
 Current files:
-- [`generate_mjcf.py`](generate_mjcf.py): generates [`merobot.xml`](merobot.xml) from `parts/*.json`, with the layout of robot_structure.md
-- [`render_views.py`](render_views.py): renders `merobot.xml` to `images/merobot_views.png`
+- [`generate_mjcf.py`](generate_mjcf.py): generates [`duckbot.xml`](duckbot.xml) from `parts/*.json`, with the layout of robot_structure.md
+- [`render_views.py`](render_views.py): renders `duckbot.xml` to `images/duckbot_views.png`
 - [`parts/`](parts): part definitions (`servo`, `sts3215`, `foot`, `head_box`, `box_body`) and their STL meshes
 
 ---
@@ -79,7 +79,7 @@ Current files:
 
 The robot is written down as a Unicode box-drawing table of re-usable parts:
 
-- Notation: [merobot_spec.md](merobot_spec.md)
+- Notation: [../../standard/structure_notation.md](../../standard/structure_notation.md)
 - Our robot: [robot_structure.md](robot_structure.md)
 
 ---

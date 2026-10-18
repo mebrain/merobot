@@ -1,6 +1,6 @@
 # merobot – Structure Notation Spec
 
-How we write down the structure of the robot as text. The robot itself is described in [robot_structure.md](robot_structure.md).
+How we write down the structure of the robot as text. Duckbot uses this notation in [its structure document](../robots/duckbot/robot_structure.md). Robot-specific definitions live under `robots/<robot>/`; paths such as `parts/` and `sensors.json` below are relative to that robot directory.
 
 _Draft. We are still working on this spec._
 

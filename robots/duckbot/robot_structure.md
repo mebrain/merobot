@@ -1,6 +1,6 @@
-# merobot – Robot Structure
+# Duckbot – Robot Structure
 
-Notation: see [merobot_spec.md](merobot_spec.md).
+Notation: see [../../standard/structure_notation.md](../../standard/structure_notation.md).
 
 _Draft: middle (servos 3–8) to be corrected._
 

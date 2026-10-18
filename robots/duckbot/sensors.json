@@ -1,5 +1,5 @@
 {
-  "description": "All sensors on merobot: what they measure, where they sit, and their specs. Used later to add matching sensors to the MuJoCo model.",
+  "description": "All sensors on Duckbot: what they measure, where they sit, and their specs. Used later to add matching sensors to the MuJoCo model.",
 
   "sensors": [
     {

@@ -1,6 +1,6 @@
-"""Render merobot.xml from several angles into images/merobot_views.png (servo IDs labelled).
+"""Render duckbot.xml from several angles into images/duckbot_views.png (servo IDs labelled).
 
-Usage:
+Usage (from robots/duckbot):
     python render_views.py
 """
 
@@ -15,7 +15,7 @@ W, H = 700, 760
 
 
 def main():
-    m = mujoco.MjModel.from_xml_path(str(ROOT / "merobot.xml"))
+    m = mujoco.MjModel.from_xml_path(str(ROOT / "duckbot.xml"))
     d = mujoco.MjData(m)
     r = mujoco.Renderer(m, H, W)
     font = ImageFont.truetype("arialbd.ttf", 16)
@@ -60,7 +60,8 @@ def main():
         shot(125, -18, "joints moved", pose),
     ]
     grid = np.concatenate([np.concatenate(tiles[:2], 1), np.concatenate(tiles[2:], 1)], 0)
-    out = ROOT / "images" / "merobot_views.png"
+    out = ROOT / "images" / "duckbot_views.png"
+    out.parent.mkdir(parents=True, exist_ok=True)
     Image.fromarray(grid).save(out)
     print(f"wrote {out}")
 
