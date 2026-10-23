@@ -62,6 +62,16 @@ The connector is dimensioned 4.8 × 4.8 mm from its centre, which aligns with th
 
 ![Edge-aligned feature after the adjustment, with its height marked as 4.8 mm](5x5Standard-edge-notch-4p8.png)
 
+### Assembled edge-aligned clearance example
+
+These views show two mating components assembled with edge-aligned connections. The arrows in the plan view highlight the small gaps at the outer ends of the joint; the perspective view shows how the mating features fit together while the outside faces remain aligned.
+
+Use this example to check the **complete assembled fit**, not just an isolated connector. Confirm that the intended relief leaves room at every mating face and that a small local offset does not make another feature collide or prevent insertion. The images illustrate the edge-aligned exception; they do not introduce a new clearance dimension or replace centred alignment as the default.
+
+![Plan view of two assembled edge-aligned components, with arrows marking the joint-end clearance gaps](5x5Standard-edge-aligned-assembly-plan.png)
+
+![Perspective view of the assembled components showing the mating edge features and clearance](5x5Standard-edge-aligned-assembly-perspective.png)
+
 ## Holders and rod spacing
 
 - In a complex holder, keep **5 mm between adjacent 5 mm rods**.
