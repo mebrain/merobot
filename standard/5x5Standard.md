@@ -4,9 +4,9 @@ _Draft notes. All dimensions are in millimetres._
 
 ## Alignment rule — replaces earlier drafts
 
-**Notches, sockets and mating connectors share the same grid centre. Clearance is symmetric on all sides.** This replaces the earlier left-aligned/top-aligned rule that added all clearance to the right or downward.
+**Default: notches, sockets and mating connectors share the same grid centre, with symmetric clearance on all sides.** The limited edge-aligned notch exception for flat printing is described below. This replaces the earlier left-aligned/top-aligned rule that added all clearance to the right or downward.
 
-- Position geometry by its **centre**, then extend half its width and height in each direction. Never use one edge as the clearance anchor.
+- Position geometry by its **centre**, then extend half its width and height in each direction. Do not use one edge as the clearance anchor under the default rule; only the documented bottom-clearance exception below permits one-sided relief.
 - A **5.3 mm socket around a nominal 5 mm bar** adds **0.15 mm per side**. A **4.8 mm printed connector in a nominal 5 mm notch** leaves **0.1 mm per side**.
 - Grid locations such as **x = -10 mm** and instructions to arrange positions rightwards describe **connection centres and layout order**, not one-sided clearance.
 - The separate blind-socket insertion-depth allowance remains beyond the bar end; it does not offset the cross-sectional centre.
@@ -30,11 +30,11 @@ _Draft notes. All dimensions are in millimetres._
 
 - On **any component shape**, two separated notches or connectors must have **centre-to-centre spacing that is a multiple of 5 mm**: 5, 10, 15, 20 mm, and so on. Measure from the shared connection reference, not from an outside edge of the shape.
 - **Notch centres must align exactly with the 5 mm grid.** A holder using the 10 mm pitch described below occupies every second grid position; that pitch is a valid multiple of 5 mm.
-- Centre each mating connector **on the centre of its notch**, in both width and height.
+- By default, centre each mating connector **on the centre of its notch**, in both width and height. The edge-aligned flat-printing exception below is the only permitted local departure described here.
 - For **3D-printed male connectors**, the cross-section must be **no more than 4.8 mm wide and 4.8 mm high**.
-- Distribute clearance **equally on every side**. Sketch the connector from the notch centre: a maximum-size connector extends **2.4 mm left, right, above and below** that centre. Do not start at a notch edge and measure 4.8 mm inward, which would shift the connector off-centre.
+- Under the default rule, distribute clearance **equally on every side**. Sketch the connector from the notch centre: a maximum-size connector extends **2.4 mm left, right, above and below** that centre. Do not start at a notch edge and measure 4.8 mm inward, which would shift the connector off-centre.
 - For example, in a **nominal 5 × 5 mm notch**, a centred 4.8 × 4.8 mm connector leaves **0.1 mm clearance on each side**. The 5.3 mm rod sockets specified below are a separate receiving-opening allowance; a 4.8 mm printed connector centred in a 5.3 mm opening leaves **0.25 mm on each side**.
-- Connector undersizing and socket clearance must **never shift the grid, notch centre or mating connector centre**.
+- Connector undersizing and socket clearance must **not redefine the nominal grid or connection centres**. A small local component offset is permitted only for the edge-aligned flat-printing exception below and must be recorded and checked.
 
 ### Notch spacing example
 
@@ -47,6 +47,20 @@ The notches on opposite sides of this battery holder use the same 5 mm connectio
 The connector is dimensioned 4.8 × 4.8 mm from its centre, which aligns with the corresponding notch centre.
 
 ![CAD sketch of a 4.8 by 4.8 mm connector centred on its notch reference](5x5Standard-printed-connector.png)
+
+## Edge-aligned notch exception for flat printing
+
+- Use this exception **only where a notch is aligned with an outside edge** and the normal centred treatment would shift the notch slightly downward or interfere with a flat printing face.
+- To keep the print face flat, it is permitted to put the required **clearance at the bottom of the notch**, rather than shifting the whole notch downward. Keep the edge-aligned face flush; make the relief at the bottom mating face.
+- This is a **limited one-sided vertical clearance exception**, not a return to the old general left-alignment rule. Keep the horizontal alignment centred and retain the normal rules everywhere else.
+- The **4.8 mm maximum width and height for printed connectors still apply**. The diagrams show a 0.20 mm adjustment and a resulting 4.8 mm edge feature as an example; choose the relief for the actual mating geometry.
+- The assembled component can sit **slightly offset from its nominal grid position** as a result. Use the exception **carefully and infrequently**; do not move the shared grid to hide the offset.
+- Record which notch uses the exception, the relief amount and the resulting component offset in the part's design notes.
+- Before using it, check that there is **enough room for the mating part to fit and be inserted**: inspect nearby surfaces and other connectors so the offset does not cause interference, block assembly or force another connection out of alignment. If there is not enough room, retain the standard centred design or revise the surrounding geometry.
+
+![Edge-aligned notch with a 0.20 mm bottom-face clearance adjustment for flat printing](5x5Standard-edge-notch-relief.png)
+
+![Edge-aligned feature after the adjustment, with its height marked as 4.8 mm](5x5Standard-edge-notch-4p8.png)
 
 ## Holders and rod spacing
 
