@@ -30,11 +30,20 @@ _Draft notes. All dimensions are in millimetres._
 
 - A component's **connectors and notches must always use the shared 5 mm grid** for their nominal positions. Do not move connection features off the grid to accommodate the body shape or size.
 - If the current body dimensions do not allow grid-aligned connections, **expand the sides until the alignment is achieved**. Add material or increase the side margins rather than shifting the connector or notch away from its grid position.
-- **Centre the component itself between those sides**, keeping the left and right side allowances equal. Grow the enclosing sides symmetrically so the body remains centred on its reference.
-- After expansion, check that opposing connection positions still have centre-to-centre spacing in multiples of 5 mm and that the body has equal side margins.
+- **Centre the component itself between those sides**, keeping the left/right and top/bottom allowances equal. Grow the enclosing sides symmetrically so the body remains centred on its reference.
+- When a holder or enclosure is enlarged to reach the grid, **re-centre the item inside it and its receiving cavity or mounting position in both axes**. Split the extra space equally left/right and top/bottom; do not keep the item anchored at its former top-left position.
+- After expansion, check that opposing connection positions still have centre-to-centre spacing in multiples of 5 mm and that both the body and the item inside have equal opposing margins in both axes.
 - This defines the **nominal design layout**. The separate edge-aligned flat-printing exception can introduce a small local assembled-fit offset, but it does not permit off-grid nominal connection positions or asymmetric body placement simply to fit an existing body size.
 
 ![Component centred between expanded sides so its connectors and notches align with the shared grid](5x5Standard-centred-component-grid.png)
+
+### Negative example: item biased toward the top-left
+
+**Incorrect:** this enlarged holder fits the outer grid, but the item inside remains too far toward the **top and left**. The unequal opposing margins show that grid-fitting the outside alone is not enough.
+
+**Correction:** keep the grid-aligned outer connectors and notches fixed, then move the internal item and its cavity or mount to the centre of the enlarged holder. Check **left margin = right margin** and **top margin = bottom margin**. This is ordinary component centring, not the limited edge-clearance exception.
+
+![Negative example: the item in an enlarged grid-fitting holder is biased toward the top-left instead of centred](5x5Standard-off-centre-item-negative.png)
 
 ## Notches and printed connectors
 
