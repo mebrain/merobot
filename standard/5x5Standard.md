@@ -137,6 +137,14 @@ Each socket extends **0.15 mm beyond each side** of its nominal rod. The gap bet
 - Keep a selection of **2 mm screws in different lengths, including very long screws**, so the screw length can accommodate the wall thickness and reach the fastening point.
 - Choose the screw length to suit the part. Do not introduce awkward shapes, recesses or extensions solely to fit a shorter screw when they would require supports or add printing complexity.
 
+## Cabling channels
+
+- Cable-routing channels must be **3 mm deep and 2 mm wide**.
+- Where possible, **cut the channel into the bottom of the component**, meaning the face intended to **rest on the printer bed** during printing.
+- Measure channel depth **inward from that bottom face** and width **across the cable route**. The 3 mm channel depth is separate from the connection engagement and socket-depth dimensions.
+
+![Underside of a component showing cable-routing channels cut into the printer-bed-facing side](5x5Standard-cabling-channels.png)
+
 ## Printing and hole geometry
 
 - Every object must have a **clearly defined intended print orientation**, identifying the side or face that rests on the print bed.
