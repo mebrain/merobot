@@ -26,6 +26,16 @@ _Draft notes. All dimensions are in millimetres._
 - Arrange the remaining positions **rightwards** from there. With the 10 mm centre-to-centre pitch below, the centres are **-10, 0, 10, 20 mm, and so on**, as needed.
 - These positions refer to the nominal 5 mm rods. Socket clearance does not move the grid or its reference points.
 
+## Centre the component and expand its sides
+
+- A component's **connectors and notches must always use the shared 5 mm grid** for their nominal positions. Do not move connection features off the grid to accommodate the body shape or size.
+- If the current body dimensions do not allow grid-aligned connections, **expand the sides until the alignment is achieved**. Add material or increase the side margins rather than shifting the connector or notch away from its grid position.
+- **Centre the component itself between those sides**, keeping the left and right side allowances equal. Grow the enclosing sides symmetrically so the body remains centred on its reference.
+- After expansion, check that opposing connection positions still have centre-to-centre spacing in multiples of 5 mm and that the body has equal side margins.
+- This defines the **nominal design layout**. The separate edge-aligned flat-printing exception can introduce a small local assembled-fit offset, but it does not permit off-grid nominal connection positions or asymmetric body placement simply to fit an existing body size.
+
+![Component centred between expanded sides so its connectors and notches align with the shared grid](5x5Standard-centred-component-grid.png)
+
 ## Notches and printed connectors
 
 - On **any component shape**, two separated notches or connectors must have **centre-to-centre spacing that is a multiple of 5 mm**: 5, 10, 15, 20 mm, and so on. Measure from the shared connection reference, not from an outside edge of the shape.
