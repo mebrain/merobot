@@ -45,6 +45,14 @@ _Draft notes. All dimensions are in millimetres._
 
 ![Negative example: the item in an enlarged grid-fitting holder is biased toward the top-left instead of centred](5x5Standard-off-centre-item-negative.png)
 
+## Grid attachment: notches or a fitting hole
+
+- A component can attach to the shared grid using **notches or a fitting hole**.
+- The fitting-hole layout has a **nominal 15 × 15 mm envelope**, with **four nominal 5 × 5 mm corner features**, one at each corner, as shown below. The four corner regions define the fit around the central cross-shaped opening.
+- Keep these features aligned with the shared **5 mm grid**. The dimensions describe the nominal layout; apply the existing centred-clearance and printed-connector sizing rules to the mating features without moving their grid references.
+
+![CAD example of a 15 by 15 mm fitting-hole layout with a 5 by 5 mm feature at each of its four corners](5x5Standard-fitting-hole.png)
+
 ## Notches and printed connectors
 
 - On **any component shape**, two separated notches or connectors must have **centre-to-centre spacing that is a multiple of 5 mm**: 5, 10, 15, 20 mm, and so on. Measure from the shared connection reference, not from an outside edge of the shape.
