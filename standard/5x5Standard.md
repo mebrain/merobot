@@ -6,8 +6,8 @@ _Draft notes. All dimensions are in millimetres._
 
 **Default: notches, sockets and mating connectors share the same grid centre, with symmetric clearance on all sides.** The limited edge-aligned notch exception for flat printing is described below. This replaces the earlier left-aligned/top-aligned rule that added all clearance to the right or downward.
 
-- Position geometry by its **centre**, then extend half its width and height in each direction. Do not use one edge as the clearance anchor under the default rule; only the documented bottom-clearance exception below permits one-sided relief.
-- A **5.3 mm socket around a nominal 5 mm bar** adds **0.15 mm per side**. A **4.8 mm printed connector in a nominal 5 mm notch** leaves **0.1 mm per side**.
+- Position geometry by its **centre**, then extend half its width and height in each direction. Do not use one edge as the clearance anchor under the default rule; only the documented edge exception below permits one-sided relief on a connector; receiving holes stay fixed.
+- Receiving holes, sockets and notches keep their **5 mm grid geometry**. Only mating connectors are reduced for clearance: **4.8 mm leaves 0.1 mm per side**, and **4.6 mm leaves 0.2 mm per side** in a 5 mm opening. This replaces the earlier 5.3 mm receiving-opening width and height rule.
 - Grid locations such as **x = -10 mm** and instructions to arrange positions rightwards describe **connection centres and layout order**, not one-sided clearance.
 - The separate blind-socket insertion-depth allowance remains beyond the bar end; it does not offset the cross-sectional centre.
 
@@ -45,13 +45,25 @@ _Draft notes. All dimensions are in millimetres._
 
 ![Negative example: the item in an enlarged grid-fitting holder is biased toward the top-left instead of centred](5x5Standard-off-centre-item-negative.png)
 
+## Fixed receiving holes; clearance on connectors only
+
+- **Receiving holes and notches must always follow the fixed 5 mm grid. Never enlarge, shrink or shift them to obtain fit clearance.** A single receiving cell is **5 × 5 mm**; larger fitting-hole layouts use whole 5 mm cells, such as the **15 × 15 mm** layout below.
+- **Only the mating connectors vary for fit.** Centre each connector on the receiving cell, then reduce its width and height symmetrically. The printed maximum remains **4.8 × 4.8 mm**; **4.6 × 4.6 mm** is also allowed.
+- A 4.6 mm connector starts **0.2 mm inside each edge** of its matching 5 mm cell. For a hole spanning **5 to 10 mm**, the connector spans **5.2 to 9.8 mm**, sharing its **7.5 mm centre**. Apply this in both axes.
+- Dimension connectors from the **matching receiving-hole centres**, not by chaining gaps from neighbouring connectors. At **10 mm centre spacing**, two centred 4.6 mm connectors have a **5.4 mm edge-to-edge gap**; that gap is not a receiving-hole dimension.
+- The edge-aligned flat-printing exception may alter a **connector only**. It must never change a receiving hole's grid position or dimensions.
+- This rule concerns the receiving cross-section and grid layout. The separately specified fitting-hole depth and blind-socket insertion-depth allowances remain as stated below.
+
 ## Grid attachment: notches or a fitting hole
 
 - A component can attach to the shared grid using **notches or a fitting hole**.
+- The **15 × 15 mm fitting hole must be 2 mm deep**, measured inward from the receiving surface. This is the fitting-hole depth, separate from the bar-socket engagement depths below.
 - The fitting-hole layout has a **nominal 15 × 15 mm envelope**, with **four nominal 5 × 5 mm corner features**, one at each corner, as shown below. The four corner regions define the fit around the central cross-shaped opening.
-- Keep these features aligned with the shared **5 mm grid**. The dimensions describe the nominal layout; apply the existing centred-clearance and printed-connector sizing rules to the mating features without moving their grid references.
+- Keep these features aligned with the shared **5 mm grid**. Keep the receiving layout fixed; apply fit clearance only by reducing the mating connectors about their receiving-cell centres.
 
 ![CAD example of a 15 by 15 mm fitting-hole layout with a 5 by 5 mm feature at each of its four corners](5x5Standard-fitting-hole.png)
+
+![Perspective example of the 15 by 15 mm fitting hole recessed 2 mm into the receiving surface](5x5Standard-fitting-hole-depth.png)
 
 ## Notches and printed connectors
 
@@ -60,7 +72,7 @@ _Draft notes. All dimensions are in millimetres._
 - By default, centre each mating connector **on the centre of its notch**, in both width and height. The edge-aligned flat-printing exception below is the only permitted local departure described here.
 - For **3D-printed male connectors**, the cross-section must be **no more than 4.8 mm wide and 4.8 mm high**.
 - Under the default rule, distribute clearance **equally on every side**. Sketch the connector from the notch centre: a maximum-size connector extends **2.4 mm left, right, above and below** that centre. Do not start at a notch edge and measure 4.8 mm inward, which would shift the connector off-centre.
-- For example, in a **nominal 5 × 5 mm notch**, a centred 4.8 × 4.8 mm connector leaves **0.1 mm clearance on each side**. The 5.3 mm rod sockets specified below are a separate receiving-opening allowance; a 4.8 mm printed connector centred in a 5.3 mm opening leaves **0.25 mm on each side**.
+- In a fixed **5 × 5 mm notch**, a centred 4.8 × 4.8 mm connector leaves **0.1 mm clearance on each side**; a centred 4.6 × 4.6 mm connector leaves **0.2 mm on each side**. Do not resize the receiving notch.
 - Connector undersizing and socket clearance must **not redefine the nominal grid or connection centres**. A small local component offset is permitted only for the edge-aligned flat-printing exception below and must be recorded and checked.
 
 ### Notch spacing example
@@ -78,7 +90,7 @@ The connector is dimensioned 4.8 × 4.8 mm from its centre, which aligns with th
 ## Edge-aligned notch exception for flat printing
 
 - Use this exception **only where a notch is aligned with an outside edge** and the normal centred treatment would shift the notch slightly downward or interfere with a flat printing face.
-- To keep the print face flat, it is permitted to put the required **clearance at the bottom of the notch**, rather than shifting the whole notch downward. Keep the edge-aligned face flush; make the relief at the bottom mating face.
+- To keep the print face flat, it is permitted to remove the required clearance from the **bottom of the mating connector**, keeping its edge-aligned face flush. **The receiving notch stays fixed on the 5 mm grid**, with unchanged dimensions; do not shift it or cut relief into it.
 - This is a **limited one-sided vertical clearance exception**, not a return to the old general left-alignment rule. Keep the horizontal alignment centred and retain the normal rules everywhere else.
 - The **4.8 mm maximum width and height for printed connectors still apply**. The diagrams show a 0.20 mm adjustment and a resulting 4.8 mm edge feature as an example; choose the relief for the actual mating geometry.
 - The assembled component can sit **slightly offset from its nominal grid position** as a result. Use the exception **carefully and infrequently**; do not move the shared grid to hide the offset.
@@ -103,19 +115,9 @@ Use this example to check the **complete assembled fit**, not just an isolated c
 
 - In a complex holder, keep **5 mm between adjacent 5 mm rods**.
 - Draft interpretation: this is the clear gap between nominal rod edges, giving a **10 mm centre-to-centre pitch**. Confirm this interpretation before treating the draft as final.
-- Rod sockets must accept a **5 × 5 mm** square rod in a **5.3 × 5.3 mm** opening: **0.3 mm total clearance per axis**.
-- **Centre each socket on its nominal rod position.** Distribute the extra 0.3 mm equally: **0.15 mm to the left and 0.15 mm to the right**, and likewise **0.15 mm above and below**. The socket and rod share the same centre; do not left-align or top-align the socket.
-
-Example with 5.3 mm sockets and a nominal 5 mm gap, measured from the component midpoint (x = 0):
-
-| Feature | Horizontal extent |
-|---|---|
-| First nominal rod (centre -10 mm) | -12.5 to -7.5 mm |
-| First socket (centre -10 mm) | -12.65 to -7.35 mm |
-| Second nominal rod (centre 0 mm) | -2.5 to 2.5 mm |
-| Second socket (centre 0 mm) | -2.65 to 2.65 mm |
-
-Each socket extends **0.15 mm beyond each side** of its nominal rod. The gap between the two socket edges is **4.7 mm**, from x = -7.35 mm to x = -2.65 mm, while the nominal rod centres stay at -10 and 0 mm. Apply the same centred clearance vertically. This cross-sectional clearance does not change the separate insertion-depth allowance below.
+- Receiving rod sockets keep a **5 × 5 mm cross-section**, aligned to the shared grid. This supersedes the earlier 5.3 × 5.3 mm opening rule.
+- Obtain fit clearance by reducing the **mating connector**, keeping it centred on the socket. For printed connectors, use no more than **4.8 × 4.8 mm**, or **4.6 × 4.6 mm** for 0.2 mm per-side clearance.
+- For socket centres at **-10 and 0 mm**, the fixed openings span **-12.5 to -7.5 mm** and **-2.5 to 2.5 mm**. Their clear gap remains **5 mm**. Centred 4.6 mm connectors span **-12.3 to -7.7 mm** and **-2.3 to 2.3 mm** respectively.
 
 ## Depth and front alignment
 
